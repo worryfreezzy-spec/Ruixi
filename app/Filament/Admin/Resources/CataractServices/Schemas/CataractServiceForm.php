@@ -46,6 +46,10 @@ class CataractServiceForm
                     ->label('介绍说明')
                     ->rows(5)
                     ->columnSpanFull(),
+                TextInput::make('button_text')
+                    ->label('按钮文字'),
+                TextInput::make('button_url')
+                    ->label('按钮链接'),
                 Repeater::make('sections')
                     ->label('文章内容区块')
                     ->relationship()

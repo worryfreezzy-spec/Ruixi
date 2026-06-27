@@ -66,6 +66,12 @@
                 <div class="cell">
                     <a href="{{ $pageUrl($item->link_url) }}" @if($isExternal($item->link_url)) target="_blank" rel="noopener" @endif>
                         <picture>
+                            <source
+                                media="(max-width: 767px)"
+                                srcset="{{ $assetUrl($item->mobile_image ?: $item->image) }}"
+                                width="1080"
+                                height="1080"
+                            >
                             <img
                                 src="{{ $assetUrl($item->image) }}"
                                 alt="{{ $item->title }}"
@@ -95,6 +101,7 @@
             'section' => $feature,
             'items' => $featureItems,
             'assetUrl' => $assetUrl,
+            'title' => '为什么选择我们',
         ])
     </div>
 
@@ -105,8 +112,8 @@
                 @if($treatmentBackground) style="background-image: url('{{ $treatmentBackground }}'); background-size: cover; background-position: center;" @endif
             ></div>
             <div class="col pad5">
-                @if ($treatment->subtitle)<h4>{{ $treatment->subtitle }}</h4>@endif
-                @if ($treatment->title)<h1>{{ $treatment->title }}</h1>@endif
+                @if ($treatment->title)<h4>{{ $treatment->title }}</h4>@endif
+                @if ($treatment->subtitle)<h1>{{ $treatment->subtitle }}</h1>@endif
                 @if ($treatment->description)<p>{!! nl2br(e($treatment->description)) !!}</p>@endif
                 @if ($treatment->button_text && $treatment->button_url)
                     <p><a class="button" href="{{ $pageUrl($treatment->button_url) }}">{{ $treatment->button_text }}</a></p>

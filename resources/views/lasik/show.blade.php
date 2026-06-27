@@ -139,5 +139,9 @@
         </div>
     @endif
 
-    @include('frontend.partials.contact-cta', ['cta' => $contactCta, 'variant' => 'form'])
+    @include('frontend.partials.contact-cta', [
+        'cta' => $contactCta,
+        'variant' => 'form',
+        'defaultTreatment' => $service->category?->title,
+    ])
 @endsection

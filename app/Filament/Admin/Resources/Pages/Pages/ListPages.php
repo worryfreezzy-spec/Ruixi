@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Resources\Pages\Pages;
 
 use App\Filament\Admin\Resources\Pages\PageResource;
-use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
 class ListPages extends ListRecords
@@ -12,8 +11,6 @@ class ListPages extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        return [];
     }
 }

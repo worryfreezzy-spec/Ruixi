@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CataractContentSeeder::class);
         $this->call(EyeDiseaseContentSeeder::class);
         $this->call(ChildrenContentSeeder::class);
+        $this->call(PlasticSurgeryContentSeeder::class);
+        $this->call(ContactPageSeeder::class);
         $this->call(HomeContentAssetsSeeder::class);
     }
 }

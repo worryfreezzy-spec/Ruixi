@@ -2,8 +2,6 @@
 
 namespace App\Filament\Admin\Resources\MenuItems\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
@@ -16,27 +14,18 @@ class MenuItemsTable
     {
         return $table
             ->columns([
-                TextColumn::make('menu.name')
-                    ->label('所属导航')
-                    ->searchable(),
-                TextColumn::make('parent.title')
-                    ->label('上级')
-                    ->searchable(),
-                TextColumn::make('page.title')
-                    ->label('关联页面')
-                    ->searchable(),
                 TextColumn::make('title')
-                    ->label('标题')
-                    ->searchable(),
+                    ->label('导航层级')
+                    ->formatStateUsing(fn (string $state, $record): string => $record->parent_id ? '──── '.$state : $state)
+                    ->description(fn ($record): ?string => $record->parent?->title ? '上级：'.$record->parent->title : '顶级导航')
+                    ->searchable()
+                    ->weight(fn ($record): string => $record->parent_id ? 'normal' : 'bold'),
                 TextColumn::make('url')
                     ->label('链接')
                     ->searchable(),
                 TextColumn::make('target')
                     ->label('打开方式')
-                    ->searchable(),
-                TextColumn::make('icon')
-                    ->label('图标')
-                    ->searchable(),
+                    ->formatStateUsing(fn (?string $state): string => $state === '_blank' ? '新窗口' : '当前窗口'),
                 TextColumn::make('sort_order')
                     ->label('排序')
                     ->numeric()
@@ -44,28 +33,11 @@ class MenuItemsTable
                 IconColumn::make('is_active')
                     ->label('启用')
                     ->boolean(),
-                TextColumn::make('created_at')
-                    ->label('创建时间')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->label('更新时间')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->filters([
-                //
             ])
             ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
+                ViewAction::make()->label('查看'),
+                EditAction::make()->label('编辑'),
             ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
+            ->toolbarActions([]);
     }
 }

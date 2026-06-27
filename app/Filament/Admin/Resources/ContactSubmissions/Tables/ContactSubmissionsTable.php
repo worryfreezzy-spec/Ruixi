@@ -20,12 +20,26 @@ class ContactSubmissionsTable
                     ->label('电话')
                     ->searchable(),
                 TextColumn::make('email')
-                    ->label('电邮')
-                    ->searchable(),
-                TextColumn::make('treatment')
-                    ->label('咨询项目')
+                    ->label('邮箱')
                     ->searchable()
                     ->toggleable(),
+                TextColumn::make('treatment')
+                    ->label('感兴趣的治疗项目')
+                    ->searchable()
+                    ->toggleable(),
+                TextColumn::make('branch')
+                    ->label('属意分行')
+                    ->searchable()
+                    ->toggleable(),
+                TextColumn::make('referral')
+                    ->label('您如何知道OPTIMAX?')
+                    ->searchable()
+                    ->toggleable(),
+                TextColumn::make('comments')
+                    ->label('查询')
+                    ->limit(30)
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('page')
                     ->label('来源页面')
                     ->searchable()

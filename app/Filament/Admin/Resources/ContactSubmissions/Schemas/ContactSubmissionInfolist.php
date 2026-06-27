@@ -16,11 +16,12 @@ class ContactSubmissionInfolist
                     ->schema([
                         TextEntry::make('name')->label('姓名')->placeholder('-'),
                         TextEntry::make('phone')->label('电话')->placeholder('-'),
-                        TextEntry::make('email')->label('电邮')->placeholder('-'),
+                        TextEntry::make('email')->label('邮箱')->placeholder('-'),
+                        TextEntry::make('treatment')->label('感兴趣的治疗项目')->placeholder('-'),
+                        TextEntry::make('branch')->label('属意分行')->placeholder('-'),
+                        TextEntry::make('referral')->label('您如何知道OPTIMAX?')->placeholder('-'),
+                        TextEntry::make('comments')->label('查询')->placeholder('-')->columnSpanFull(),
                         TextEntry::make('page')->label('来源页面')->placeholder('-'),
-                        TextEntry::make('treatment')->label('咨询项目')->placeholder('-'),
-                        TextEntry::make('referral')->label('来源标识')->placeholder('-'),
-                        TextEntry::make('comments')->label('留言')->placeholder('-')->columnSpanFull(),
                     ])
                     ->columns(2),
                 Section::make('处理信息')

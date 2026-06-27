@@ -21,16 +21,27 @@ class SiteSettingResource extends Resource
     protected static ?string $model = SiteSetting::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static ?string $modelLabel = '网站设置';
 
-    protected static ?string $pluralModelLabel = '网站设置';
+    protected static ?string $modelLabel = '内容管理';
 
-    protected static ?string $navigationLabel = '网站设置';
+    protected static ?string $pluralModelLabel = '内容管理';
 
-    protected static string | \UnitEnum | null $navigationGroup = '系统设置';
+    protected static ?string $navigationLabel = '内容管理';
+
+    protected static string|\UnitEnum|null $navigationGroup = '网站设置';
 
     protected static ?int $navigationSort = 10;
 
+    public static function getNavigationUrl(): string
+    {
+        $setting = SiteSetting::query()->oldest('id')->first();
+
+        if (! $setting) {
+            return static::getUrl('index');
+        }
+
+        return static::getUrl('edit', ['record' => $setting]);
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -64,4 +75,3 @@ class SiteSettingResource extends Resource
         ];
     }
 }
-

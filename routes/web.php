@@ -4,11 +4,13 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CeoController;
 use App\Http\Controllers\CataractController;
 use App\Http\Controllers\ChildrenController;
+use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\ContactSubmissionController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\EyeDiseaseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LasikController;
+use App\Http\Controllers\PlasticSurgeryController;
 use App\Http\Controllers\WhyChooseUsController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +38,10 @@ Route::get('/laser-vision-correction', [LasikController::class, 'index']);
 Route::get('/laser-vision-correction.html', [LasikController::class, 'index']);
 Route::get('/kids', [ChildrenController::class, 'index']);
 Route::get('/kids.html', [ChildrenController::class, 'index']);
+Route::get('/plastic-surgery', PlasticSurgeryController::class);
+Route::get('/plastic-surgery.html', PlasticSurgeryController::class);
+Route::get('/contact', [ContactPageController::class, 'index']);
+Route::get('/contact.html', [ContactPageController::class, 'index']);
 foreach ([
     'zeiss-smile-pro',
     'presbyond',
@@ -49,6 +55,36 @@ foreach ([
 ] as $lasikSlug) {
     Route::get('/' . $lasikSlug, fn (LasikController $controller) => $controller->show($lasikSlug));
     Route::get('/' . $lasikSlug . '.html', fn (LasikController $controller) => $controller->show($lasikSlug));
+}
+foreach ([
+    'ttdi',
+    'sri-petaling',
+    'cheras',
+    'kepong',
+    'melawati',
+    'oug',
+    'damansara-jaya',
+    'sunway',
+    'elmina',
+    'kota-kemuning',
+    'shah-alam',
+    'klang',
+    'penang',
+    'bukit-mertajam',
+    'ipoh',
+    'seremban',
+    'bahau',
+    'kluang',
+    'muar',
+    'segamat',
+    'johor',
+    'sutera',
+    'kuching',
+    'kota-kinabalu',
+    'cambodia',
+] as $branchSlug) {
+    Route::get('/' . $branchSlug, fn (ContactPageController $controller) => $controller->show($branchSlug));
+    Route::get('/' . $branchSlug . '.html', fn (ContactPageController $controller) => $controller->show($branchSlug));
 }
 foreach ([
     'kids-myopia',

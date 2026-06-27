@@ -1,27 +1,48 @@
 @props([
     'cta' => null,
     'variant' => 'simple',
+    'defaultTreatment' => null,
 ])
 
 @php
     $active = $cta?->is_active ?? false;
+    $isForm = $cta?->show_form || $variant === 'form';
     $style = $cta?->background_image_url ? "background-image: url('{$cta->background_image_url}')" : null;
+    $fallbackTreatment = $defaultTreatment ?: trim($__env->yieldContent('title'));
+    $buttonUrl = $cta?->button_url
+        ? (preg_match('/^https?:\/\//', $cta->button_url) ? $cta->button_url : url($cta->button_url))
+        : null;
 @endphp
 
 @if ($active)
-    <div class="row {{ $cta->show_form || $variant === 'form' ? 'cta2021' : 'cta2' }}" @if($style) style="{{ $style }}" @endif>
-        <div class="{{ $cta->show_form || $variant === 'form' ? 'col-md x15-md' : 'col half-left' }} pad fade-up">
-            @if ($cta->subtitle)<p class="t-blue"><strong>{{ $cta->subtitle }}</strong></p>@endif
-            @if ($cta->title)<h1>{!! str_replace('今天', '<strong>今天</strong>', e($cta->title)) !!}</h1>@endif
-            @if ($cta->description)<p>{!! nl2br(e($cta->description)) !!}</p>@endif
-            @if ($cta->extra_text)<p>{!! nl2br(e($cta->extra_text)) !!}</p>@endif
-            @if ($cta->note)<h6>{{ $cta->note }}</h6>@endif
-            @if (! $cta->show_form && $cta->button_text && $cta->button_url)
-                <a class="button2 button-cta" href="{{ url($cta->button_url) }}">{{ $cta->button_text }}</a>
+    <div class="row {{ $isForm ? 'cta2021' : 'cta2' }}" @if($style) style="{{ $style }}" @endif>
+        <div class="{{ $isForm ? 'col-md x15-md' : 'col half-left' }} pad fade-up">
+            @if ($cta->subtitle)
+                <h4>{{ $cta->subtitle }}</h4>
+            @endif
+
+            @if ($cta->title)
+                <h1>{!! str_replace('今天', '<strong>今天</strong>', e($cta->title)) !!}</h1>
+            @endif
+
+            @if ($cta->description)
+                <p>{!! nl2br(e($cta->description)) !!}</p>
+            @endif
+
+            @if ($cta->extra_text)
+                <p>{!! nl2br(e($cta->extra_text)) !!}</p>
+            @endif
+
+            @if ($cta->note)
+                <h6>{{ $cta->note }}</h6>
+            @endif
+
+            @if (! $isForm && $cta->button_text && $buttonUrl)
+                <a class="button2 button-cta" href="{{ $buttonUrl }}">{{ $cta->button_text }}</a>
             @endif
         </div>
 
-        @if ($cta->show_form || $variant === 'form')
+        @if ($isForm)
             <div class="col-md x15-md pad fade-up">
                 <h3 class="t-blue"><strong>注册表格</strong></h3>
                 @if (session('contact_success'))
@@ -40,8 +61,9 @@
                     <input type="text" name="email" id="email" placeholder="您的电邮" value="{{ old('email') }}" required>
                     <input name="form_key" id="form_key" type="hidden" value="{{ $cta->key ?? 'treatment_registration' }}">
                     <input name="page" id="page" type="hidden" value="{{ trim($__env->yieldContent('title')) }}">
-                    <input name="treatment" id="treatment" type="hidden" value="{{ trim($__env->yieldContent('title')) }}">
-                    <input name="referral" id="referral" value="Quick Form" type="hidden">
+                    <input name="category" id="category" type="hidden" value="{{ $fallbackTreatment }}">
+                    <input name="treatment" id="treatment" type="hidden" value="{{ $fallbackTreatment }}">
+                    <input name="referral" id="referral" value="快速表格" type="hidden">
                     <input name="comments" id="comments" value="N/A" type="hidden">
                     <br>
                     <input name="submit" type="submit" value="提交">
@@ -53,7 +75,7 @@
         @endif
     </div>
 
-    @if ($cta->show_form || $variant === 'form')
+    @if ($isForm)
         <div class="contact-success-modal" id="contactSuccessModal" aria-hidden="true">
             <div class="contact-success-dialog" role="dialog" aria-modal="true" aria-labelledby="contactSuccessTitle">
                 <button class="contact-success-close" type="button" aria-label="关闭">&times;</button>

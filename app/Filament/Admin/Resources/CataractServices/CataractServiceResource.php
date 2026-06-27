@@ -6,7 +6,7 @@ use App\Filament\Admin\Resources\CataractServices\Pages\CreateCataractService;
 use App\Filament\Admin\Resources\CataractServices\Pages\EditCataractService;
 use App\Filament\Admin\Resources\CataractServices\Pages\ListCataractServices;
 use App\Filament\Admin\Resources\CataractServices\Schemas\CataractServiceForm;
-use App\Filament\Admin\Resources\Services\Tables\ServicesTable;
+use App\Filament\Admin\Resources\CataractServices\Tables\CataractServicesTable;
 use App\Models\Service;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -44,7 +44,7 @@ class CataractServiceResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return ServicesTable::configure($table);
+        return CataractServicesTable::configure($table);
     }
 
     public static function getPages(): array

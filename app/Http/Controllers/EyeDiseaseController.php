@@ -37,7 +37,7 @@ class EyeDiseaseController
         return view('eye-diseases.show', [
             'disease' => $disease,
             'sections' => $disease->sections->where('is_active', true)->sortBy('sort_order'),
-            'contactCta' => ContactCta::query()->where('key', 'eye_disease')->first(),
+            'contactCta' => ContactCta::query()->where('key', 'cataract')->first(),
         ]);
     }
 }

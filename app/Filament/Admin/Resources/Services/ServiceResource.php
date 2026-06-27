@@ -32,6 +32,11 @@ class ServiceResource extends Resource
 
     protected static ?int $navigationSort = 80;
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()

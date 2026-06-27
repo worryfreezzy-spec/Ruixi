@@ -4,14 +4,9 @@
 @section('title', $category->title)
 @section('description', $category->description)
 
-@php
-    $heroImage = $category->hero_image;
-    $useCustomHero = filled($heroImage) && ! in_array(ltrim($heroImage, '/'), ['static/image/hero20.jpg', 'static/image/hero20@2x.jpg'], true);
-@endphp
-
 @section('content')
     <div class="full banner zoom">
-        <div class="hero hero20" @if($useCustomHero && $category->hero_image_url) style="background-image: url('{{ $category->hero_image_url }}')" @endif></div>
+        <div class="hero hero20" @if($category->hero_image_url) style="background-image: url('{{ $category->hero_image_url }}')" @endif></div>
         @if ($category->hero_title)<h1 class="tagline">{!! $category->hero_title !!}</h1>@endif
     </div>
 

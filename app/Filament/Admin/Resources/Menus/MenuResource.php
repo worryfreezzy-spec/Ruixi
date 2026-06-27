@@ -21,16 +21,21 @@ class MenuResource extends Resource
     protected static ?string $model = Menu::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
     protected static ?string $modelLabel = '导航';
 
     protected static ?string $pluralModelLabel = '导航管理';
 
     protected static ?string $navigationLabel = '导航管理';
 
-    protected static string | \UnitEnum | null $navigationGroup = '导航管理';
+    protected static string|\UnitEnum|null $navigationGroup = '网站设置';
 
-    protected static ?int $navigationSort = 50;
+    protected static ?int $navigationSort = 20;
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -64,4 +69,3 @@ class MenuResource extends Resource
         ];
     }
 }
-

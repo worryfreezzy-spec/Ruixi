@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class PageResource extends Resource
 {
@@ -31,6 +32,28 @@ class PageResource extends Resource
 
     protected static ?int $navigationSort = 20;
 
+    protected static bool $shouldRegisterNavigation = false;
+
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->where('slug', '/');
+    }
+
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
+    public static function canDelete($record): bool
+    {
+        return false;
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return false;
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -64,4 +87,3 @@ class PageResource extends Resource
         ];
     }
 }
-

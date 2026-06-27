@@ -20,19 +20,19 @@ class BannersTable
                     ->label('标题')
                     ->searchable(),
                 ImageColumn::make('image_url')
-                    ->label('图片')
+                    ->label('电脑端图片')
+                    ->square(),
+                ImageColumn::make('mobile_image_url')
+                    ->label('手机端图片')
                     ->square(),
                 TextColumn::make('link_url')
                     ->label('跳转链接')
                     ->searchable()
                     ->limit(50),
             ])
-            ->filters([
-                //
-            ])
             ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
+                EditAction::make()->label('编辑'),
+                DeleteAction::make()->label('删除'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

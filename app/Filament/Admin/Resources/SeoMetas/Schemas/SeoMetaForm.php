@@ -2,9 +2,10 @@
 
 namespace App\Filament\Admin\Resources\SeoMetas\Schemas;
 
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class SeoMetaForm
@@ -13,32 +14,36 @@ class SeoMetaForm
     {
         return $schema
             ->components([
-                TextInput::make('model_type')
-                    ->label('模型类型')
+                Hidden::make('model_type')
+                    ->default('page_path')
                     ->required(),
-                TextInput::make('model_id')
-                    ->label('模型ID')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('meta_title')
-                    ->label('SEO标题'),
-                Textarea::make('meta_description')
-                    ->label('SEO描述')
-                    ->columnSpanFull(),
-                Textarea::make('meta_keywords')
-                    ->label('SEO关键词')
-                    ->columnSpanFull(),
-                TextInput::make('og_title')
-                    ->label('分享标题'),
-                Textarea::make('og_description')
-                    ->label('分享描述')
-                    ->columnSpanFull(),
-                FileUpload::make('og_image')
-                    ->label('分享图片')
-                    ->image(),
-                TextInput::make('canonical_url')
-                    ->label('规范链接')
-                    ->url(),
+                Hidden::make('model_id')
+                    ->default(0)
+                    ->required(),
+                Hidden::make('page_path')
+                    ->required(),
+                Hidden::make('is_active')
+                    ->default(true),
+
+                Section::make('基础 SEO')
+                    ->schema([
+                        TextInput::make('meta_title')
+                            ->label('SEO标题')
+                            ->maxLength(255)
+                            ->columnSpanFull(),
+                        Textarea::make('meta_description')
+                            ->label('SEO描述')
+                            ->rows(4)
+                            ->columnSpanFull(),
+                        Textarea::make('meta_keywords')
+                            ->label('SEO关键词')
+                            ->rows(3)
+                            ->columnSpanFull(),
+                        TextInput::make('canonical_url')
+                            ->label('规范链接')
+                            ->maxLength(255),
+                    ])
+                    ->columns(2),
             ]);
     }
 }

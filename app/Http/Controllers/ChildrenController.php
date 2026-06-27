@@ -22,7 +22,7 @@ class ChildrenController
         return view('children.index', [
             'category' => $category,
             'children' => $category->services,
-            'contactCta' => ContactCta::query()->where('key', 'children')->first(),
+            'contactCta' => ContactCta::query()->where('key', 'cataract')->first(),
         ]);
     }
 
@@ -38,7 +38,7 @@ class ChildrenController
         return view('children.show', [
             'child' => $child,
             'sections' => $child->sections->where('is_active', true)->sortBy('sort_order'),
-            'contactCta' => ContactCta::query()->where('key', 'children')->first(),
+            'contactCta' => ContactCta::query()->where('key', 'cataract')->first(),
         ]);
     }
 }

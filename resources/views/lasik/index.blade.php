@@ -36,5 +36,9 @@
         </div>
     @endforeach
 
-    @include('frontend.partials.contact-cta', ['cta' => $contactCta, 'variant' => 'form'])
+    @include('frontend.partials.contact-cta', [
+        'cta' => $contactCta,
+        'variant' => 'form',
+        'defaultTreatment' => $category->title,
+    ])
 @endsection

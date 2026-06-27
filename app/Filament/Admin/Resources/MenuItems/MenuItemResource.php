@@ -15,26 +15,39 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class MenuItemResource extends Resource
 {
     protected static ?string $model = MenuItem::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static ?string $modelLabel = '导航项';
 
-    protected static ?string $pluralModelLabel = '导航项';
+    protected static ?string $modelLabel = '顶部导航';
 
-    protected static ?string $navigationLabel = '导航项';
+    protected static ?string $pluralModelLabel = '顶部导航';
 
-    protected static string | \UnitEnum | null $navigationGroup = '导航管理';
+    protected static ?string $navigationLabel = '顶部导航';
 
-    protected static ?int $navigationSort = 60;
+    protected static string|\UnitEnum|null $navigationGroup = '网站设置';
 
+    protected static ?int $navigationSort = 30;
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->select('menu_items.*')
+            ->leftJoin('menu_items as parent_items', 'menu_items.parent_id', '=', 'parent_items.id')
+            ->whereHas('menu', fn (Builder $query) => $query->where('location', 'header'))
+            ->orderByRaw('COALESCE(parent_items.sort_order, menu_items.sort_order) asc')
+            ->orderByRaw('CASE WHEN menu_items.parent_id IS NULL THEN 0 ELSE 1 END asc')
+            ->orderBy('menu_items.sort_order')
+            ->orderBy('menu_items.id');
+    }
 
     public static function form(Schema $schema): Schema
     {
-        return MenuItemForm::configure($schema);
+        return MenuItemForm::configure($schema, 'header');
     }
 
     public static function infolist(Schema $schema): Schema
@@ -64,4 +77,3 @@ class MenuItemResource extends Resource
         ];
     }
 }
-

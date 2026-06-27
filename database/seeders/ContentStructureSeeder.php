@@ -296,9 +296,7 @@ class ContentStructureSeeder extends Seeder
                 ['视觉矫正师', '/orthoptist'],
             ]],
             ['整形外科', '/plastic-surgery', []],
-            ['联系我们', '/contact', [
-                ['查询及预约表格', '/contact'],
-            ]],
+            ['联系我们', '/contact', []],
         ];
 
         $this->syncMenuItems($header, $headerItems);

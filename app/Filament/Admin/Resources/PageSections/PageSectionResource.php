@@ -41,6 +41,17 @@ class PageSectionResource extends Resource
                 'about_humble',
                 'about_innovation',
                 'about_people',
+                'award_grid',
+                'logo_grid',
+                'ceo_hero',
+                'ceo_profile',
+                'why_choose_hero',
+                'why_choose_icons',
+                'doctors_intro',
+                'optimax_advantages',
+                'plastic_services',
+                'contact_branches',
+                'contact_form',
             ]);
     }
 

@@ -22,7 +22,7 @@ class LasikController
         return view('lasik.index', [
             'category' => $category,
             'services' => $category->services,
-            'contactCta' => ContactCta::query()->where('key', 'lasik')->first(),
+            'contactCta' => ContactCta::query()->where('key', 'treatment_registration')->first(),
         ]);
     }
 
@@ -38,7 +38,7 @@ class LasikController
         return view('lasik.show', [
             'service' => $service,
             'sections' => $service->sections->where('is_active', true)->sortBy('sort_order'),
-            'contactCta' => ContactCta::query()->where('key', 'lasik')->first(),
+            'contactCta' => ContactCta::query()->where('key', 'treatment_registration')->first(),
         ]);
     }
 }

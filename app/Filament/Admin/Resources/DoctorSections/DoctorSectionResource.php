@@ -31,6 +31,8 @@ class DoctorSectionResource extends Resource
 
     protected static ?int $navigationSort = 120;
 
+    protected static bool $shouldRegisterNavigation = false;
+
 
     public static function form(Schema $schema): Schema
     {

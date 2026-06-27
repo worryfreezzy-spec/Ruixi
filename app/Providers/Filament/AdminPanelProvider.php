@@ -2,8 +2,8 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Admin\Pages\Login;
 use App\Filament\Admin\Pages\Dashboard;
+use App\Filament\Admin\Pages\Login;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -33,6 +33,18 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Amber,
             ])
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\Filament\Admin\Resources')
+            ->navigationGroups([
+                '网站设置',
+                '首页内容',
+                '关于我们',
+                '白内障治疗',
+                '眼睛疾病',
+                '激光矫视',
+                '儿童',
+                '整形外科',
+                '联系我们管理',
+                '表单管理',
+            ])
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\Filament\Admin\Pages')
             ->pages([
                 Dashboard::class,

@@ -17,11 +17,16 @@ class BannerForm
                     ->required()
                     ->maxLength(255),
                 FileUpload::make('image')
-                    ->label('图片上传')
+                    ->label('电脑端图片')
                     ->image()
                     ->disk('public')
                     ->directory('banners')
                     ->required(),
+                FileUpload::make('mobile_image')
+                    ->label('手机端图片')
+                    ->image()
+                    ->disk('public')
+                    ->directory('banners/mobile'),
                 TextInput::make('link_url')
                     ->label('跳转链接')
                     ->maxLength(255),

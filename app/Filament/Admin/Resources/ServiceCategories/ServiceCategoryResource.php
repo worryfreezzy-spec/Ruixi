@@ -32,6 +32,11 @@ class ServiceCategoryResource extends Resource
 
     protected static ?int $navigationSort = 70;
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->whereNotIn('slug', ['cataract', 'eye-diseases']);

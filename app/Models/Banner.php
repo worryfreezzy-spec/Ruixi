@@ -17,4 +17,17 @@ class Banner extends Model
 
         return Storage::disk('public')->url($this->image);
     }
+
+    public function getMobileImageUrlAttribute(): ?string
+    {
+        if (! $this->mobile_image) {
+            return null;
+        }
+
+        if (str_starts_with($this->mobile_image, 'static/')) {
+            return asset($this->mobile_image);
+        }
+
+        return Storage::disk('public')->url($this->mobile_image);
+    }
 }

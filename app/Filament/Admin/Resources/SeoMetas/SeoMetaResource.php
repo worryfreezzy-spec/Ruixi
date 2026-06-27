@@ -21,16 +21,27 @@ class SeoMetaResource extends Resource
     protected static ?string $model = SeoMeta::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static ?string $modelLabel = 'SEO资料';
+
+    protected static ?string $modelLabel = 'SEO管理';
 
     protected static ?string $pluralModelLabel = 'SEO管理';
 
     protected static ?string $navigationLabel = 'SEO管理';
 
-    protected static string | \UnitEnum | null $navigationGroup = 'SEO管理';
+    protected static string|\UnitEnum|null $navigationGroup = '网站设置';
 
-    protected static ?int $navigationSort = 180;
+    protected static ?int $navigationSort = 50;
 
+    public static function getNavigationUrl(): string
+    {
+        $seoMeta = SeoMeta::query()->oldest('id')->first();
+
+        if (! $seoMeta) {
+            return static::getUrl('create');
+        }
+
+        return static::getUrl('edit', ['record' => $seoMeta]);
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -64,4 +75,3 @@ class SeoMetaResource extends Resource
         ];
     }
 }
-

@@ -23,10 +23,20 @@
     </div>
 
     <div class="row blue3 inv pad mobi-center">
-        <div class="col"><img src="{{ asset('static/picture/logo-white.png') }}" alt="{{ $settings?->site_name }}" class="footer-logo"></div>
+        <div class="col">
+            <img src="{{ $settings?->footer_logo_url ?: asset('static/picture/logo-white.png') }}" alt="{{ $settings?->site_name }}" class="footer-logo">
+        </div>
         <div class="col taR">
-            @if ($settings?->facebook_url)<a href="{{ $settings->facebook_url }}"><img src="{{ asset('static/picture/facebook.svg') }}" alt="Facebook" class="social"></a>@endif
-            @if ($settings?->instagram_url)<a href="{{ $settings->instagram_url }}"><img src="{{ asset('static/picture/instagram.svg') }}" alt="Instagram" class="social"></a>@endif
+            @if ($settings?->facebook_url)
+                <a href="{{ $settings->facebook_url }}" target="_blank" rel="noopener">
+                    <img src="{{ $settings?->facebook_icon_url ?: asset('static/picture/facebook.svg') }}" alt="Facebook" class="social">
+                </a>
+            @endif
+            @if ($settings?->instagram_url)
+                <a href="{{ $settings->instagram_url }}" target="_blank" rel="noopener">
+                    <img src="{{ $settings?->instagram_icon_url ?: asset('static/picture/instagram.svg') }}" alt="Instagram" class="social">
+                </a>
+            @endif
         </div>
     </div>
     <div class="credit blue4">

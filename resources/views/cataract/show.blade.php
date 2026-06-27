@@ -12,6 +12,19 @@
     $rleProcedureSection = $service->slug === 'refractive-lens-exchange'
         ? $activeSections->firstWhere('title', '屈光性晶状体置换术程序')
         : null;
+    $pageUrl = function (?string $url): string {
+        if (blank($url) || $url === '#') {
+            return '#';
+        }
+
+        if (str_starts_with($url, 'http://') || str_starts_with($url, 'https://') || str_starts_with($url, 'tel:') || str_starts_with($url, 'mailto:')) {
+            return $url;
+        }
+
+        $clean = ltrim($url, '/');
+
+        return url(str_ends_with($clean, '.html') ? $clean : $clean . '.html');
+    };
 @endphp
 
 @section('content')
@@ -24,6 +37,9 @@
             <h4><a href="{{ url('cataract.html') }}">白内障治疗 /</a></h4>
             <h1>{!! nl2br(e($service->intro_title ?: $service->title)) !!}</h1>
             @if ($service->intro_description)<p>{!! nl2br(e($service->intro_description)) !!}</p>@endif
+            @if ($service->button_text && $service->button_url)
+                <p><a class="button" href="{{ $pageUrl($service->button_url) }}">{{ $service->button_text }}</a></p>
+            @endif
             @if ($sections->get('intro_image')?->image_url)
                 <img width="450" src="{{ $sections->get('intro_image')->image_url }}" alt="{{ $service->title }}">
                 @if ($sections->get('intro_image')->description)<h5>{{ $sections->get('intro_image')->description }}</h5>@endif
@@ -126,5 +142,9 @@
         @endif
     @endforeach
 
-    @include('frontend.partials.contact-cta', ['cta' => $contactCta, 'variant' => 'form'])
+    @include('frontend.partials.contact-cta', [
+        'cta' => $contactCta,
+        'variant' => 'form',
+        'defaultTreatment' => $service->category?->title,
+    ])
 @endsection

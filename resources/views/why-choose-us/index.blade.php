@@ -27,17 +27,16 @@
 @endphp
 
 @section('content')
-    @if ($hero?->is_active)
-        <div class="banner zoom">
-            <div class="hero hero9" @if($hero->image) style="background-image: url('{{ $assetUrl($hero->image) }}')" @endif></div>
-            @if ($hero->title)<h1 class="tagline">{!! nl2br(e($hero->title)) !!}</h1>@endif
-        </div>
-    @endif
+    <div class="banner zoom">
+        <div class="hero hero9"></div>
+        <h1 class="tagline">为何选择我们？</h1>
+    </div>
 
     @include('frontend.partials.why-choose-us', [
         'section' => $iconSection,
         'items' => $iconItems,
         'assetUrl' => $assetUrl,
+        'title' => '为何选择我们？',
     ])
 
     @if ($advantageSection?->is_active)

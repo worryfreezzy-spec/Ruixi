@@ -50,7 +50,6 @@ class LasikServiceForm
                             ->label('左侧说明 内容')
                             ->rows(6)
                             ->columnSpanFull(),
-                        self::fileUpload('left_image', '左侧说明 图片', ['image/jpeg', 'image/png', 'image/webp']),
                         self::fileUpload('detail_media', '程序上方媒体', ['image/jpeg', 'image/png', 'image/webp', 'video/mp4']),
                     ])
                     ->columns(2),
@@ -62,6 +61,7 @@ class LasikServiceForm
                             ->label('详情右侧说明')
                             ->rows(5)
                             ->columnSpanFull(),
+                        self::fileUpload('left_image', '右侧说明 图片', ['image/jpeg', 'image/png', 'image/webp']),
                     ])
                     ->columns(2),
                 Repeater::make('sections')

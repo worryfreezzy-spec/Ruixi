@@ -32,6 +32,11 @@ class ServiceSectionResource extends Resource
 
     protected static ?int $navigationSort = 90;
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()

@@ -28,6 +28,8 @@ class ChildrenResource extends Resource
 
     protected static ?string $navigationLabel = '儿童管理';
 
+    protected static ?string $slug = 'children';
+
     protected static string|\UnitEnum|null $navigationGroup = '儿童';
 
     protected static ?int $navigationSort = 20;

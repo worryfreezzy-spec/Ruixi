@@ -2,6 +2,7 @@
     'section' => null,
     'items' => collect(),
     'assetUrl' => null,
+    'title' => '为何选择我们？',
 ])
 
 @php
@@ -26,12 +27,12 @@
     $background = $section?->background_image ? $resolveAssetUrl($section->background_image) : null;
 @endphp
 
-@if ($section?->is_active)
+@if ($activeItems->isNotEmpty())
     <div
         class="pad centered mint fig-up fade-up"
         @if($background) style="background-image: url('{{ $background }}'); background-size: cover; background-position: center;" @endif
     >
-        <h1>{{ $section->title ?: '为什么选择我们' }}</h1>
+        <h1>{{ $title }}</h1>
         <div class="fig-up">
             @foreach ($activeItems as $item)
                 <figure>

@@ -1,0 +1,20 @@
+﻿@import url('css2.css');
+body {
+    font-family: 'Work Sans',"Noto Sans Khmer", sans-serif;
+}
+
+
+@media screen and (min-width:48em) {
+	#contact .embed iframe {
+        padding: 0;
+        box-shadow: none;
+    
+    }
+}
+
+@media screen and (min-width:80em) {
+	.menu {
+        padding-top: 28px
+    
+    }
+}

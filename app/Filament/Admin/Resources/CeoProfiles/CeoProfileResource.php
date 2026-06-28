@@ -18,7 +18,7 @@ class CeoProfileResource extends Resource
 {
     protected static ?string $model = PageSection::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUser;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedIdentification;
 
     protected static ?string $modelLabel = '首席执行员个人履历';
 

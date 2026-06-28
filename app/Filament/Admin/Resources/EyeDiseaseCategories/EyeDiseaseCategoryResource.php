@@ -18,7 +18,7 @@ class EyeDiseaseCategoryResource extends Resource
 {
     protected static ?string $model = ServiceCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedEye;
 
     protected static ?string $modelLabel = '眼睛疾病页面';
 

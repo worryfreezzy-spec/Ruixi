@@ -20,7 +20,7 @@ class SectionItemResource extends Resource
 {
     protected static ?string $model = SectionItem::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCheckBadge;
 
     protected static ?string $modelLabel = '为什么选择我们';
 

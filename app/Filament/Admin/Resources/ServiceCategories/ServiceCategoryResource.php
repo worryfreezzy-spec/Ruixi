@@ -21,7 +21,7 @@ class ServiceCategoryResource extends Resource
 {
     protected static ?string $model = ServiceCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
     protected static ?string $modelLabel = '服务分类';
 
     protected static ?string $pluralModelLabel = '服务分类';

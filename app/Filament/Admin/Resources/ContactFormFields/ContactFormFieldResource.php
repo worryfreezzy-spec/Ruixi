@@ -22,7 +22,7 @@ class ContactFormFieldResource extends Resource
 
     protected static bool $shouldRegisterNavigation = false;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
     protected static ?string $modelLabel = '表单字段';
 
     protected static ?string $pluralModelLabel = '表单字段';

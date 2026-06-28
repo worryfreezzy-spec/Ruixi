@@ -18,7 +18,7 @@ class ContactCtaResource extends Resource
 {
     protected static ?string $model = ContactCta::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleBottomCenterText;
 
     protected static ?string $modelLabel = '表单信息';
 

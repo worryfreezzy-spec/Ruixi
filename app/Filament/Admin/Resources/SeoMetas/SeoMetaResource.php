@@ -20,7 +20,7 @@ class SeoMetaResource extends Resource
 {
     protected static ?string $model = SeoMeta::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMagnifyingGlass;
 
     protected static ?string $modelLabel = 'SEO管理';
 

@@ -19,7 +19,7 @@ class PageSectionResource extends Resource
 {
     protected static ?string $model = PageSection::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleGroup;
 
     protected static ?string $modelLabel = '页面区块';
 

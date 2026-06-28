@@ -20,7 +20,7 @@ class OptimaxAdvantageResource extends Resource
 {
     protected static ?string $model = SectionItem::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedShieldCheck;
 
     protected static ?string $modelLabel = 'OPTIMAX的强大优势';
 

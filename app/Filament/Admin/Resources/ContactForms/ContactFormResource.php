@@ -22,7 +22,7 @@ class ContactFormResource extends Resource
 
     protected static bool $shouldRegisterNavigation = false;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentCheck;
     protected static ?string $modelLabel = '联系表单';
 
     protected static ?string $pluralModelLabel = '联系表单';

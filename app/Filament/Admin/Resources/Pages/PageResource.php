@@ -21,7 +21,7 @@ class PageResource extends Resource
 {
     protected static ?string $model = Page::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentDuplicate;
     protected static ?string $modelLabel = '页面';
 
     protected static ?string $pluralModelLabel = '页面管理';

@@ -21,7 +21,7 @@ class ServiceSectionItemResource extends Resource
 {
     protected static ?string $model = ServiceSectionItem::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedListBullet;
     protected static ?string $modelLabel = '服务区块项目';
 
     protected static ?string $pluralModelLabel = '服务区块项目';

@@ -19,7 +19,7 @@ class AwardResource extends Resource
 {
     protected static ?string $model = Award::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTrophy;
 
     protected static ?string $modelLabel = '我们的奖项';
 

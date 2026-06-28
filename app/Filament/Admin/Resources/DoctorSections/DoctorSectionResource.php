@@ -20,7 +20,7 @@ class DoctorSectionResource extends Resource
 {
     protected static ?string $model = DoctorSection::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedIdentification;
     protected static ?string $modelLabel = '医生资料区块';
 
     protected static ?string $pluralModelLabel = '医生资料区块';

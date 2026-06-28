@@ -27,7 +27,18 @@ class SiteSettingForm
                             ->label('WhatsApp号码'),
                         TextInput::make('whatsapp_url')
                             ->label('WhatsApp链接')
-                            ->url()
+                            ->dehydrateStateUsing(fn (?string $state): ?string => blank($state) ? null : $state)
+                            ->rule(function (): callable {
+                                return function (string $attribute, mixed $value, \Closure $fail): void {
+                                    if (blank($value)) {
+                                        return;
+                                    }
+
+                                    if (! filter_var($value, FILTER_VALIDATE_URL)) {
+                                        $fail('请输入有效的网址。');
+                                    }
+                                };
+                            })
                             ->maxLength(255),
                         FileUpload::make('favicon')
                             ->label('ICO图标')

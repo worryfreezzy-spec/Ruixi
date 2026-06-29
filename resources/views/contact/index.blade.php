@@ -155,7 +155,7 @@
 
         .form-feedback__title {
             margin: 0 0 .5rem;
-            color: #0c1638;
+            color: #21182D;
             font-size: 1.4rem;
             font-weight: 600;
         }

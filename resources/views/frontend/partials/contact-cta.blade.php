@@ -151,7 +151,7 @@
                     }
 
                     .contact-success-dialog h3 {
-                        color: #0c1638;
+                        color: #21182D;
                         margin: 0 0 10px;
                     }
 

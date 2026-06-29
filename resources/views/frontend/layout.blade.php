@@ -75,7 +75,7 @@
     @if ($ogImage)
         <meta name="twitter:image" content="{{ $ogImage }}">
     @endif
-    <meta name="theme-color" content="#0C1638">
+    <meta name="theme-color" content="#21182D">
     <meta name="color-scheme" content="only light">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('static/css/main.css') }}">

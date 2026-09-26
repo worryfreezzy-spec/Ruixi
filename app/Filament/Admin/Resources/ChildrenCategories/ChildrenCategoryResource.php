@@ -26,7 +26,7 @@ class ChildrenCategoryResource extends Resource
 
     protected static ?string $navigationLabel = '页面管理';
 
-    protected static string|\UnitEnum|null $navigationGroup = '儿童';
+    protected static string|\UnitEnum|null $navigationGroup = '全球市场分布';
 
     protected static ?int $navigationSort = 10;
 

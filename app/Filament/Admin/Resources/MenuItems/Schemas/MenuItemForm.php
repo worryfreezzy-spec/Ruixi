@@ -34,7 +34,7 @@ class MenuItemForm
                     ->required(),
                 TextInput::make('url')
                     ->label('链接')
-                    ->url(),
+                    ->required(),
                 Select::make('target')
                     ->label('打开方式')
                     ->options([

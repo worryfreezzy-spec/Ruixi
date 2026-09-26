@@ -17,7 +17,7 @@ class ContactPageSeeder extends Seeder
         $page = Page::query()->updateOrCreate(
             ['slug' => 'contact'],
             [
-                'title' => '联络 <strong>OPTIMAX</strong>',
+                'title' => '与我们联系',
                 'template' => 'contact',
                 'hero_title' => '保持联系',
                 'hero_image' => 'static/image/hero18.jpg',

@@ -14,6 +14,15 @@ class MenuItem extends Model
         'is_active' => 'boolean',
     ];
 
+    public function resolveRouteBindingQuery($query, $value, $field = null)
+    {
+        return parent::resolveRouteBindingQuery(
+            $query,
+            $value,
+            $this->qualifyColumn($field ?? $this->getRouteKeyName()),
+        );
+    }
+
     public function menu(): BelongsTo
     {
         return $this->belongsTo(Menu::class);

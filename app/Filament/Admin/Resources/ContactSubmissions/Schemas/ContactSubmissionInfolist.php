@@ -18,7 +18,6 @@ class ContactSubmissionInfolist
                         TextEntry::make('phone')->label('电话')->placeholder('-'),
                         TextEntry::make('email')->label('邮箱')->placeholder('-'),
                         TextEntry::make('treatment')->label('感兴趣的治疗项目')->placeholder('-'),
-                        TextEntry::make('branch')->label('属意分行')->placeholder('-'),
                         TextEntry::make('referral')->label('您如何知道OPTIMAX?')->placeholder('-'),
                         TextEntry::make('comments')->label('查询')->placeholder('-')->columnSpanFull(),
                         TextEntry::make('page')->label('来源页面')->placeholder('-'),

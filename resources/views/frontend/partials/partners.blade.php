@@ -4,7 +4,7 @@
 
 @if ($logoSection?->is_active)
     <div class="partners">
-        <h3>{{ $logoSection->title ?: '保险 & TPA*' }}</h3>
+        <h3>{{ $logoSection->title ?: '合作品牌' }}</h3>
         @foreach ($partners as $partner)
             @if ($partner->logo)
                 @if ($partner->url)

@@ -57,6 +57,7 @@
     $awardSection = $sections->get('award_grid');
     $logoSection = $sections->get('logo_grid');
     $treatmentBackground = $treatment?->background_image ? $assetUrl($treatment->background_image) : null;
+    $paymentBackground = $payment?->background_image ? $assetUrl($payment->background_image) : null;
 @endphp
 
 @section('content')
@@ -132,7 +133,10 @@
                     <br><a class="button3" href="{{ $pageUrl($payment->button_url) }}">{{ $payment->button_text }}</a>
                 @endif
             </div>
-            <div class="col prop meet-doc x15"></div>
+            <div
+                class="col prop meet-doc x15"
+                @if($paymentBackground) style="background-image: url('{{ $paymentBackground }}'); background-size: cover; background-position: center;" @endif
+            ></div>
         </div>
     @endif
 @endsection

@@ -45,7 +45,6 @@ class PageSectionResource extends Resource
                 'logo_grid',
                 'ceo_hero',
                 'ceo_profile',
-                'why_choose_hero',
                 'why_choose_icons',
                 'doctors_intro',
                 'optimax_advantages',

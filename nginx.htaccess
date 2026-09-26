@@ -1,1 +1,6 @@
+# Laravel public uploads are stored outside the web root's URL path.
+# ServBay currently serves this project from its repository root, so expose
+# /storage/... from storage/app/public/... before falling back to Laravel.
+rewrite ^/storage/(.*)$ /storage/app/public/$1 last;
+
 try_files $uri $uri/ /index.php?$query_string;

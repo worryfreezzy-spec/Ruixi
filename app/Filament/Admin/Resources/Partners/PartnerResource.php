@@ -21,11 +21,11 @@ class PartnerResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingLibrary;
 
-    protected static ?string $modelLabel = '保险 & TPA';
+    protected static ?string $modelLabel = '合作品牌';
 
-    protected static ?string $pluralModelLabel = '保险 & TPA';
+    protected static ?string $pluralModelLabel = '合作品牌';
 
-    protected static ?string $navigationLabel = '保险 & TPA';
+    protected static ?string $navigationLabel = '合作品牌';
 
     protected static string|\UnitEnum|null $navigationGroup = '首页内容';
 

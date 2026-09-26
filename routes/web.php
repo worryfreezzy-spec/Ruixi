@@ -28,10 +28,16 @@ Route::get('/why-choose-us', WhyChooseUsController::class);
 Route::get('/why-choose-us.html', WhyChooseUsController::class);
 Route::get('/cataract', [CataractController::class, 'index']);
 Route::get('/cataract.html', [CataractController::class, 'index']);
-Route::get('/no-blade-cataract-surgery', fn (CataractController $controller) => $controller->show('no-blade-cataract-surgery'));
-Route::get('/no-blade-cataract-surgery.html', fn (CataractController $controller) => $controller->show('no-blade-cataract-surgery'));
-Route::get('/refractive-lens-exchange', fn (CataractController $controller) => $controller->show('refractive-lens-exchange'));
-Route::get('/refractive-lens-exchange.html', fn (CataractController $controller) => $controller->show('refractive-lens-exchange'));
+foreach ([
+    'five-projects-rhp-ba',
+    'five-projects-rhp-ecs',
+    'five-projects-rhp-rhp',
+    'five-projects-rhp-lipo',
+    'five-projects-rhp-df',
+] as $cataractSlug) {
+    Route::get('/' . $cataractSlug, fn (CataractController $controller) => $controller->show($cataractSlug));
+    Route::get('/' . $cataractSlug . '.html', fn (CataractController $controller) => $controller->show($cataractSlug));
+}
 Route::get('/eye-diseases-management', [EyeDiseaseController::class, 'index']);
 Route::get('/eye-diseases-management.html', [EyeDiseaseController::class, 'index']);
 Route::get('/laser-vision-correction', [LasikController::class, 'index']);

@@ -24,11 +24,12 @@
     };
 
     $hero = $sections->get('why_choose_hero');
+    $heroImage = $hero?->image ? $assetUrl($hero->image) : null;
 @endphp
 
 @section('content')
     <div class="banner zoom">
-        <div class="hero hero9"></div>
+        <div class="hero hero9" @if($heroImage) style="background-image: url('{{ $heroImage }}'); background-size: cover; background-position: center;" @endif></div>
         <h1 class="tagline">为何选择我们？</h1>
     </div>
 

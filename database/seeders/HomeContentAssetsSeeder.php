@@ -126,7 +126,7 @@ class HomeContentAssetsSeeder extends Seeder
     {
         $defaults = [
             'intro_text_image' => ['button_text' => '我们的故事', 'button_url' => 'about.html'],
-            'treatment_highlight' => ['button_text' => '更多信息', 'button_url' => 'no-blade-cataract-surgery.html'],
+            'treatment_highlight' => ['button_text' => '更多信息', 'button_url' => 'five-projects-rhp-ba.html'],
             'payment_plan' => ['button_text' => '更多信息', 'button_url' => 'lasik-pricing.html'],
             'logo_grid' => ['description' => '*可使用在指定分行'],
         ];

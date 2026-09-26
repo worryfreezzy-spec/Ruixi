@@ -26,12 +26,12 @@
             @endif
 
             @if ($doctor->qualification)
-                <h4>学历</h4>
+                <h4>职称</h4>
                 <p>{!! nl2br(e($doctor->qualification)) !!}</p>
             @endif
 
             @if ($doctor->specialty)
-                <h4>专科领域</h4>
+                <h4>擅长项目</h4>
                 <ul class="disc">
                     @foreach ($lines($doctor->specialty) as $specialty)
                         <li>{{ $specialty }}</li>
@@ -40,7 +40,7 @@
             @endif
 
             @if ($doctor->languages)
-                <h4>语言</h4>
+                <h4>荣誉</h4>
                 <p>{!! nl2br(e($doctor->languages)) !!}</p>
             @endif
 

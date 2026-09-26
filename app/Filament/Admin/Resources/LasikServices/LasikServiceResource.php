@@ -23,13 +23,13 @@ class LasikServiceResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBolt;
 
-    protected static ?string $modelLabel = '矫视文章';
+    protected static ?string $modelLabel = '文章列表';
 
-    protected static ?string $pluralModelLabel = '矫视列表';
+    protected static ?string $pluralModelLabel = '抗衰列表';
 
-    protected static ?string $navigationLabel = '矫视列表';
+    protected static ?string $navigationLabel = '抗衰列表';
 
-    protected static string|\UnitEnum|null $navigationGroup = '激光矫视';
+    protected static string|\UnitEnum|null $navigationGroup = '美容抗衰';
 
     protected static ?int $navigationSort = 20;
 

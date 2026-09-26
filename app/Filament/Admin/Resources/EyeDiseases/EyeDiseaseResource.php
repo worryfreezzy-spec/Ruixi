@@ -25,11 +25,11 @@ class EyeDiseaseResource extends Resource
 
     protected static ?string $modelLabel = '疾病文章';
 
-    protected static ?string $pluralModelLabel = '疾病列表';
+    protected static ?string $pluralModelLabel = '整形美容外科列表';
 
-    protected static ?string $navigationLabel = '疾病列表';
+    protected static ?string $navigationLabel = '整形美容外科列表';
 
-    protected static string|\UnitEnum|null $navigationGroup = '眼睛疾病';
+    protected static string|\UnitEnum|null $navigationGroup = '整形美容外科';
 
     protected static ?int $navigationSort = 20;
 

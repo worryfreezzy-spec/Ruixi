@@ -27,10 +27,6 @@ class ContactSubmissionsTable
                     ->label('感兴趣的治疗项目')
                     ->searchable()
                     ->toggleable(),
-                TextColumn::make('branch')
-                    ->label('属意分行')
-                    ->searchable()
-                    ->toggleable(),
                 TextColumn::make('referral')
                     ->label('您如何知道OPTIMAX?')
                     ->searchable()

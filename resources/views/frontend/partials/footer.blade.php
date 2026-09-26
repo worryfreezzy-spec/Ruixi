@@ -11,15 +11,17 @@
 
     <div class="row grey3 pad footer-menu">
         @foreach ($activeItems($footerMenu?->items?->whereNull('parent_id') ?? collect())->chunk(4) as $chunk)
-            <div class="col">
+            <div class="col {{ $loop->last ? 'footer-menu-contact' : '' }}">
                 @foreach ($chunk as $item)
                     <p><strong><a href="{{ $pageUrl($item->url) }}">{{ $item->title }}</a></strong></p>
                 @endforeach
-                @if ($loop->last && $settings?->hotline)
-                    <p><a href="tel:{{ preg_replace('/\D+/', '', $settings->hotline) }}" class="button3">HOTLINE: {{ $settings->hotline }}</a></p>
-                @endif
             </div>
         @endforeach
+        @if ($settings?->hotline)
+            <div class="col footer-menu-contact">
+                <p><a href="tel:{{ preg_replace('/\D+/', '', $settings->hotline) }}" class="button3">HOTLINE: {{ $settings->hotline }}</a></p>
+            </div>
+        @endif
     </div>
 
     <div class="row blue3 inv pad mobi-center">

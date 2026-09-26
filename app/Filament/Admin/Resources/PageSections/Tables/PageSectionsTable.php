@@ -20,6 +20,7 @@ class PageSectionsTable
                         'doctors' => '我们的专科医生',
                         'plastic-surgery' => '整形外科',
                         'contact' => '联系我们',
+                        'why-choose-us' => '为什么选择我们',
                         default => $state ?: '-',
                     })
                     ->searchable(),
@@ -28,7 +29,8 @@ class PageSectionsTable
                     ->formatStateUsing(fn (string $state): string => match ($state) {
                         'intro_text_image' => '首页简介',
                         'treatment_highlight' => '首页治疗亮点',
-                        'payment_plan' => '首页付款方式',
+                        'payment_plan' => '首页机构介绍',
+                        'why_choose_hero' => '为什么选择我们 Banner',
                         'doctors_hero' => '我们的专科医生',
                         'optimax_advantages' => 'OPTIMAX的强大优势',
                         'plastic_services' => '整形外科服务清单',

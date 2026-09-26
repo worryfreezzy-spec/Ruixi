@@ -24,13 +24,13 @@ class ChildrenResource extends Resource
 
     protected static ?string $modelLabel = '儿童文章';
 
-    protected static ?string $pluralModelLabel = '儿童管理';
+    protected static ?string $pluralModelLabel = '市场分布管理';
 
-    protected static ?string $navigationLabel = '儿童管理';
+    protected static ?string $navigationLabel = '市场分布管理';
 
     protected static ?string $slug = 'children';
 
-    protected static string|\UnitEnum|null $navigationGroup = '儿童';
+    protected static string|\UnitEnum|null $navigationGroup = '全球市场分布';
 
     protected static ?int $navigationSort = 20;
 

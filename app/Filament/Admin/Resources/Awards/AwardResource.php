@@ -21,11 +21,11 @@ class AwardResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTrophy;
 
-    protected static ?string $modelLabel = '我们的奖项';
+    protected static ?string $modelLabel = '我们的荣誉';
 
-    protected static ?string $pluralModelLabel = '我们的奖项';
+    protected static ?string $pluralModelLabel = '我们的荣誉';
 
-    protected static ?string $navigationLabel = '我们的奖项';
+    protected static ?string $navigationLabel = '我们的荣誉';
 
     protected static string|\UnitEnum|null $navigationGroup = '首页内容';
 

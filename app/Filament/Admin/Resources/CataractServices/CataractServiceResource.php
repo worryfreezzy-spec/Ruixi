@@ -27,7 +27,7 @@ class CataractServiceResource extends Resource
 
     protected static ?string $navigationLabel = '下级服务文章';
 
-    protected static string|\UnitEnum|null $navigationGroup = '白内障治疗';
+    protected static string|\UnitEnum|null $navigationGroup = '五大王牌项目';
 
     protected static ?int $navigationSort = 20;
 

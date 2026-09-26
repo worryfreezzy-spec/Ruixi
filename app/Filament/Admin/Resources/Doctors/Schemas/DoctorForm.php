@@ -28,15 +28,15 @@ class DoctorForm
                 TextInput::make('position')
                     ->label('职位'),
                 Textarea::make('qualification')
-                    ->label('学历')
+                    ->label('职称')
                     ->rows(3)
                     ->columnSpanFull(),
                 Textarea::make('specialty')
-                    ->label('专科领域')
+                    ->label('擅长项目')
                     ->rows(4)
                     ->columnSpanFull(),
                 Textarea::make('languages')
-                    ->label('语言')
+                    ->label('荣誉')
                     ->rows(2)
                     ->columnSpanFull(),
                 Textarea::make('branches')

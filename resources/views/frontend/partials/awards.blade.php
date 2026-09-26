@@ -3,7 +3,7 @@
 @endphp
 
 @if ($awardSection?->is_active)
-    <h3>{{ $awardSection->title ?: '我们的奖项' }}</h3>
+    <h3>{{ $awardSection->title ?: '我们的荣誉' }}</h3>
     <div class="awards aw2024">
         @foreach ($awards as $award)
             <div @class(['aw-wide' => $loop->index < 2])>

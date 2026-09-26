@@ -136,9 +136,9 @@ class ContentStructureSeeder extends Seeder
                 ['intro_text_image', '30年 的实战专业经验', '我们是屡获殊荣的眼科专家中心。'],
                 ['feature_grid', '为什么选择我们', ''],
                 ['treatment_highlight', '最新来自 RXZX', '无刀飞秒激光白内障手术（FLACS）'],
-                ['payment_plan', '0% 轻松付款', '提供灵活付款方式。'],
-                ['award_grid', '我们的奖项', ''],
-                ['logo_grid', '保险 & TPA', ''],
+                ['payment_plan', '渝见美丽', '提供灵活付款方式。'],
+                ['award_grid', '我们的荣誉', ''],
+                ['logo_grid', '合作品牌', ''],
             ];
 
             foreach ($sections as $index => [$type, $title, $description]) {

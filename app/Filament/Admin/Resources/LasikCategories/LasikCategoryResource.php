@@ -26,7 +26,7 @@ class LasikCategoryResource extends Resource
 
     protected static ?string $navigationLabel = '栏目设置';
 
-    protected static string|\UnitEnum|null $navigationGroup = '激光矫视';
+    protected static string|\UnitEnum|null $navigationGroup = '美容抗衰';
 
     protected static ?int $navigationSort = 10;
 

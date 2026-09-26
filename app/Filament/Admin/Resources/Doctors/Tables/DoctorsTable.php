@@ -30,7 +30,7 @@ class DoctorsTable
                     ->label('职位')
                     ->searchable(),
                 TextColumn::make('specialty')
-                    ->label('专科领域')
+                    ->label('擅长项目')
                     ->limit(40)
                     ->searchable(),
                 TextColumn::make('sort_order')

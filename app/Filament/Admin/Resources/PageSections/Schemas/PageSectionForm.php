@@ -14,6 +14,18 @@ class PageSectionForm
     {
         return $schema
             ->components([
+                Section::make('为什么选择我们 Banner')
+                    ->schema([
+                        TextInput::make('title')
+                            ->label('标题'),
+                        FileUpload::make('image')
+                            ->label('Banner 图片')
+                            ->disk('public')
+                            ->directory('page-sections')
+                            ->image(),
+                    ])
+                    ->columns(2)
+                    ->visible(fn ($record): bool => $record?->type === 'why_choose_hero'),
                 Section::make('我们的专科医生')
                     ->schema([
                         TextInput::make('title')
@@ -79,7 +91,7 @@ class PageSectionForm
                             ->label('按钮链接'),
                     ])
                     ->columns(2)
-                    ->visible(fn ($record): bool => ! in_array($record?->type, ['doctors_hero', 'treatment_highlight'], true)),
+                    ->visible(fn ($record): bool => ! in_array($record?->type, ['why_choose_hero', 'doctors_hero', 'treatment_highlight'], true)),
             ]);
     }
 }

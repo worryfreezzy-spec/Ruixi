@@ -26,7 +26,7 @@ class EyeDiseaseCategoryResource extends Resource
 
     protected static ?string $navigationLabel = '页面管理';
 
-    protected static string|\UnitEnum|null $navigationGroup = '眼睛疾病';
+    protected static string|\UnitEnum|null $navigationGroup = '整形美容外科';
 
     protected static ?int $navigationSort = 10;
 

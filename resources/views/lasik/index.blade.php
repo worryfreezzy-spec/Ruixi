@@ -27,10 +27,10 @@
         <div class="row {{ $loop->odd ? '' : 'mint ' }}zoom thumbs fade-up">
             @foreach ($row as $service)
                 <div class="col">
-                    <a href="{{ str_starts_with($service->slug, 'http') ? $service->slug : url($service->slug . '.html') }}" @if(str_starts_with($service->slug, 'http')) target="_blank" rel="noopener" @endif>
+                    <div>
                         @if ($service->thumbnail_url)<img class="ds" src="{{ $service->thumbnail_url }}" alt="{{ $service->short_title ?: $service->title }}">@endif
                         <h4>{!! $service->short_title ?: $service->title !!}</h4>
-                    </a>
+                    </div>
                 </div>
             @endforeach
         </div>

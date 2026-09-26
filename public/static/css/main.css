@@ -1015,6 +1015,12 @@ footer {
 	color: #eee;
 }
 
+.footer-menu-contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .footer-logo {
 	width: 240px;
 	margin-bottom: 1rem;
